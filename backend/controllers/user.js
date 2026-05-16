@@ -4,17 +4,18 @@ const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 
 const register = async (req, res) => {
-    const {firstName, lastName, email, password} = req.body;
+    const {username, email, password} = req.body;
 
-    if(!firstName || !lastName || !email || !password) {
+    if(!username || !email || !password) {
        return res.status(400).json({message: "All fields are required!"});
     }
 
     const [data] = await db.query(
         `
         SELECT * FROM users
-        WHERE email = ?
-        `, [email]
+        WHERE username = ?
+        OR email = ?
+        `, [username, email]
     );
 
     if(data.length > 0) {
@@ -26,26 +27,26 @@ const register = async (req, res) => {
 
     await db.query(
         `
-        INSERT INTO users(id, firstName, lastName, email, password)
-        VALUES (?, ?, ?, ?, ?)
-        `, [id, firstName, lastName, email, hashedPass]
+        INSERT INTO users(id, username, email, password)
+        VALUES (?, ?, ?, ?)
+        `, [id, username, email, hashedPass]
     );
 
     res.status(201).json({message: "Account created!"});
 }
 
 const login = async (req, res) => {
-    const {email, password} = req.body;
+    const {username, password} = req.body;
 
-    if(!email || !password) {
+    if(!username || !password) {
         return res.status(400).json({message: "All fields are required!"});
     }
 
     const [data] = await db.query(
         `
         SELECT * FROM users
-        WHERE email = ?
-        `, [email]
+        WHERE username = ?
+        `, [username]
     );
 
     const user = data[0];
@@ -53,8 +54,7 @@ const login = async (req, res) => {
     if(user && (await bcrypt.compare(password, user.password))) {
         const accessToken = jwt.sign({
             id: user.id,
-            firstName: user.firstName,
-            lastName: user.lastName,
+            username: user.username,
             email: user.email
         }, process.env.ACCESS_TOKEN, {});
 

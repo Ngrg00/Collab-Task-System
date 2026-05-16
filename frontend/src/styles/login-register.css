@@ -1,0 +1,61 @@
+body{
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin: 0;
+}
+.background{
+   width: 100%;
+}
+.login-wrapper, .register-wrapper{
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(0, 0%, 70%);
+    border-radius: 10px;
+    padding: 20px;
+}
+.login-wrapper form, .register-wrapper form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+
+}
+.input-box{
+    border: 1px solid hsl(0, 0%, 70%);
+    border-radius: 50px;
+    display: flex;
+    padding: 10px 16px;
+}
+.input-box input{
+    border: none;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    width: 20em;
+    font-size: 16px;
+}
+.input-box input::placeholder{
+    color: hsl(0, 0%, 80%)
+    ;
+}
+.login-wrapper form button, .register-wrapper form button{
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    background-color: white;
+}
+.link{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
