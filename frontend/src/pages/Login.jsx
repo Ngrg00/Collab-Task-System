@@ -54,7 +54,7 @@ function Login() {
                             type="text" placeholder="Username" 
                             value={username} onChange={e => setUsername(e.target.value)}
                             required/>
-                        <User />
+                        <User/>
                     </div>
                     <div className="input-box">
                         <input 
