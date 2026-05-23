@@ -15,16 +15,16 @@ function Header() {
             case '/home':
                 setActive(1);
                 break;
-            case '/income':
+            case '/task':
                 setActive(2);
                 break;
-            case '/expense':
+            case '/projects':
                 setActive(3);
                 break;
-            case '/recurring':
+            case '/messages':
                 setActive(4);
                 break;
-            case '/goals':
+            case '/reports':
                 setActive(5);
                 break;
         }
@@ -46,28 +46,28 @@ function Header() {
                 </Link>
                 <Link 
                     to={'/task'}
-                    className={active === 2 ? "link active" : "link"} 
+                    className={active === 2 ? "active" : "link"} 
                     onClick={() => setActive(2)}
                 >
                     My task
                 </Link>
                 <Link
                     to={'/projects'}
-                    className={active === 3 ? "link active" : "link"} 
+                    className={active === 3 ? "active" : "link"} 
                     onClick={() => setActive(3)}
                 >
                     Projects
                 </Link>
                 <Link
                     to={'/messages'}
-                    className={active === 4 ? "link active" : "link"} 
+                    className={active === 4 ? "active" : "link"} 
                     onClick={() => setActive(4)}
                 >
                     Messages
                 </Link>
                 <Link 
                     to={'/report'}
-                    className={active === 5 ? "link active" : "link"} 
+                    className={active === 5 ? "active" : "link"} 
                     onClick={() => setActive(5)}
                 >
                     Report

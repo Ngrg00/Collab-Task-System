@@ -8,7 +8,8 @@ const BASE_URL = import.meta.env.VITE_URL;
 
 function Register() {
     const nav = useNavigate();
-    const [username, setUsername] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPass, setConfirmPass] = useState("");
@@ -27,7 +28,7 @@ function Register() {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({username, email, password})
+                body: JSON.stringify({firstName, lastName, email, password})
             });
 
             const data = await res.json();
@@ -50,8 +51,14 @@ function Register() {
                     <h1>Register</h1>
                     <div className="input-box">
                         <input 
-                            type="text" placeholder="Username" 
-                            value={username} onChange={e => setUsername(e.target.value)} required/>
+                            type="text" placeholder="First Name" 
+                            value={firstName} onChange={e => setFirstName(e.target.value)} required/>
+                        <User/>
+                    </div>
+                    <div className="input-box">
+                        <input 
+                            type="text" placeholder="Last Name" 
+                            value={lastName} onChange={e => setLastName(e.target.value)} required/>
                         <User/>
                     </div>
                     <div className="input-box">

@@ -4,18 +4,17 @@ const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 
 const register = async (req, res) => {
-    const {username, email, password} = req.body;
+    const {firstName, lastName, email, password} = req.body;
 
-    if(!username || !email || !password) {
+    if(!firstName || !lastName || !email || !password) {
        return res.status(400).json({message: "All fields are required!"});
     }
 
     const [data] = await db.query(
         `
         SELECT * FROM users
-        WHERE username = ?
-        OR email = ?
-        `, [username, email]
+        WHERE email = ?
+        `, [email]
     );
 
     if(data.length > 0) {
@@ -27,26 +26,26 @@ const register = async (req, res) => {
 
     await db.query(
         `
-        INSERT INTO users(id, username, email, password)
+        INSERT INTO users(id, firstName, lastName, email, password)
         VALUES (?, ?, ?, ?)
-        `, [id, username, email, hashedPass]
+        `, [id, firstName, lastName, email, hashedPass]
     );
 
     res.status(201).json({message: "Account created!"});
 }
 
 const login = async (req, res) => {
-    const {username, password} = req.body;
+    const {email, password} = req.body;
 
-    if(!username || !password) {
+    if(!email || !password) {
         return res.status(400).json({message: "All fields are required!"});
     }
 
     const [data] = await db.query(
         `
         SELECT * FROM users
-        WHERE username = ?
-        `, [username]
+        WHERE email = ?
+        `, [email]
     );
 
     const user = data[0];
@@ -54,7 +53,8 @@ const login = async (req, res) => {
     if(user && (await bcrypt.compare(password, user.password))) {
         const accessToken = jwt.sign({
             id: user.id,
-            username: user.username,
+            firstName: user.firstName,
+            lastName: user.lastName,
             email: user.email
         }, process.env.ACCESS_TOKEN, {});
 
@@ -68,4 +68,17 @@ const login = async (req, res) => {
     }
 }
 
-module.exports = { register, login }
+const getCurrent = async (req, res) => {
+    const [data] = await db.query(
+        `
+        SELECT * FROM users
+        WHERE id = ?
+        `, [req.user.id]
+    ); 
+
+    const user = data[0]
+    
+    res.status(200).json(user);
+}
+
+module.exports = { register, login, getCurrent }
