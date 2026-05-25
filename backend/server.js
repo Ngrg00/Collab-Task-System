@@ -12,12 +12,11 @@ app.use(errorHandler);
 
 app.listen(process.env.PORT, async () => {
     console.log("Server is running on", process.env.PORT); 
-
+    
     try {
         await db.query('SELECT 1');
         console.log("DB connected!");
     } catch (error) {
         console.error("DB unable to connect:", error.message);
     }
-
 });

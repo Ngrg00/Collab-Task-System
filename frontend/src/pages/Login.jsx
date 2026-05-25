@@ -9,7 +9,7 @@ const BASE_URL = import.meta.env.VITE_URL;
 function Login() {
     const nav = useNavigate();
 
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPass, setShowPass] = useState(false);
 
@@ -19,9 +19,9 @@ function Login() {
             const res = await fetch(`${BASE_URL}/login`, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                 },
-                body: JSON.stringify({username, password})
+                body: JSON.stringify({email, password})
             });
 
             const data = await res.json();
@@ -29,9 +29,16 @@ function Login() {
                 throw new Error(data.message);
             }
 
-            alert(`Welcome ${username}`);
+            const userRes = await fetch(`${BASE_URL}/current`, {
+                headers: {
+                    Authorization: `Bearer ${data.accessToken}`
+                }
+            });
+            const user = await userRes.json();
 
-            setUsername("");
+            alert(`Welcome ${user.first_name}`);
+
+            setEmail("");
             setPassword("");
             
             sessionStorage.setItem('token', data.accessToken);
@@ -51,8 +58,8 @@ function Login() {
                     <h1>Login</h1>
                     <div className="input-box">
                         <input 
-                            type="text" placeholder="Username" 
-                            value={username} onChange={e => setUsername(e.target.value)}
+                            type="text" placeholder="Email" 
+                            value={email} onChange={e => setEmail(e.target.value)}
                             required/>
                         <User/>
                     </div>
