@@ -1,0 +1,52 @@
+.project-page-wrapper{
+    padding: 20px 0;
+    font-family: "Inter", sans-serif;
+}
+.project-page-wrapper h5{
+    font-size: 1.5em;
+    margin: 0;
+}
+.p-header{
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+.p-left img{
+    width: 150px;
+}
+.p-middle{
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+.p-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50px);
+    gap: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 40px;
+}
+.p-nav div{
+    border-radius: 50px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.p-nav div:not(.active):hover{
+    background-color: hsl(0, 0%, 93%);
+}
+.p-right button{
+    padding: 10px;
+    padding-bottom: 8px;
+    border: 1px solid lightgrey;
+    border-radius: 50px;
+    background-color: white;
+    cursor: pointer;
+}
+.p-right button:hover{
+    background-color: hsl(0, 0%, 93%);
+}

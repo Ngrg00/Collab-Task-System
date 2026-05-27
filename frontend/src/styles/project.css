@@ -21,19 +21,19 @@
     border-radius: 50px;
     background-color: #8B5CF6;
     color: white;
+    cursor: pointer;
 }
-
 .projects-container .project{
     border: 1px solid lightgrey;
     border-radius: 10px;
     padding: 10px;
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 30px;
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 .projects-container .project p{
     margin: 0;
@@ -42,7 +42,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 50px;
 }
 .projects-container .project .status{
     display: flex;
@@ -51,4 +51,51 @@
 }
 .projects-container img{
     width: 100px;
+}
+.add-project-wrapper{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-project-wrapper h5{
+    margin: 0;
+    font-size: 1.5em;
+}
+.add-project-container{
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.add-project-container .add-name, .add-due{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.add-project-container input{
+    font-size: 1em;
+    padding: 4px;
+}
+.add-project-container div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-project-container div button{
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    background-color: #8B5CF6;
+    color: white;
+    cursor: pointer;
 }

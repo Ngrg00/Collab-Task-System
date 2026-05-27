@@ -17,6 +17,7 @@
 }
 .header-container{
     display: flex;
+    transform: translate(-50px);
     gap: 4px;
 }
 .header-container .link, .active{

@@ -8,6 +8,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use('/', require('./router/user.js'));
+app.use('/', require('./router/project.js'));
+app.use('/', require('./router/subProject.js'));
+app.use('/', require('./router/task.js'));
 app.use(errorHandler);
 
 app.listen(process.env.PORT, async () => {

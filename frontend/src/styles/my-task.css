@@ -1,0 +1,83 @@
+.task-wrapper{
+    font-family: "Inter", sans-serif;
+    padding: 20px;
+}
+.text-wrapper h6, p{
+    margin: 0;
+}
+.task-wrapper h5{
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    
+}
+.task-header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.search-bar{
+    flex: 1;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 50px;
+    border: 1px solid lightgrey;
+    margin-right:  10px;
+}
+.filter{
+    padding: 10px;
+    padding-bottom: 6px;
+    border-radius: 50px;
+    border: 1px solid lightgrey;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.filter:hover{
+    background-color: hsl(0, 0%, 90%);
+}
+.filter:active{
+    background-color: hsl(0, 0%, 80%);
+}
+.task-header button{
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    background-color: #8B5CF6;
+    color: white;
+    cursor: pointer;
+}
+.task-container{
+    border-radius: 10px;
+}
+.task-date{
+    display: flex;
+    align-items: center;
+    background-color: hsl(0, 0%, 90%);
+    border: 1px solid lightgrey;
+    padding: 10px;
+}
+.tasks{
+    display: flex;
+    flex-direction: column;
+}
+.tasks .t{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 10px;
+    border: 1px solid lightgrey;
+}
+.tasks .t div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.task-info{
+    flex: 1;
+}
+.checkbox{
+    width: 20px;
+    height: 20px;
+    border: 1px solid;
+    border-radius: 50px;
+}

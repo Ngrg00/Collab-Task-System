@@ -1,44 +1,66 @@
-.task-wrapper{
-    font-family: "Inter", sans-serif;
-    padding: 20px;
-}
-.text-wrapper h6, p{
-    margin: 0;
-}
-.task-wrapper h5{
-    margin: 0;
-    margin-bottom: 10px;
-    font-size: 1.5em;
-    
-}
-.task-header{
+.p-tasks{
+    padding: 10px;
     display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+    flex-direction: column;
+    gap: 10px;
 }
-.search-bar{
-    flex: 1;
-    padding: 10px;
-    font-size: 1em;
-    border-radius: 50px;
+.p-task-container{
     border: 1px solid lightgrey;
-    margin-right:  10px;
+    position: relative;
 }
-.filter{
-    padding: 10px;
-    padding-bottom: 6px;
+.p-task-container .add-task-btn{
+    padding: 6px;
+    padding-bottom: 2px;
+    border: none;
     border-radius: 50px;
+    background-color: hsl(0, 0%, 100%);
     border: 1px solid lightgrey;
-    margin-right: 10px;
     cursor: pointer;
+    position: absolute;
+    top: -40px;
+    right: 10px;
 }
-.filter:hover{
-    background-color: hsl(0, 0%, 90%);
+.p-task-container button:hover{
+    background-color: hsl(0, 0%, 97%);
 }
-.filter:active{
-    background-color: hsl(0, 0%, 80%);
+.add-task-wrapper{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.task-header button{
+.add-task-wrapper h5{
+    margin: 0;
+    font-size: 1.5em;
+}
+.add-task-container{
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.add-task-container .add-task-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+}
+.add-task-container .add-task-info p{
+    width: 50px;
+    margin-right: 4px;
+}
+.add-task-container input, select{
+    font-size: 1em;
+    padding: 4px;
+}
+.add-task-container div button{
     padding: 10px;
     border: none;
     border-radius: 50px;
@@ -46,38 +68,7 @@
     color: white;
     cursor: pointer;
 }
-.task-container{
-    border-radius: 10px;
-}
-.task-date{
+.add-task-container .btn{
     display: flex;
-    align-items: center;
-    background-color: hsl(0, 0%, 90%);
-    border: 1px solid lightgrey;
-    padding: 10px;
-}
-.tasks{
-    display: flex;
-    flex-direction: column;
-}
-.tasks .t{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 10px 10px;
-    border: 1px solid lightgrey;
-}
-.tasks .t div{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.task-info{
-    flex: 1;
-}
-.checkbox{
-    width: 20px;
-    height: 20px;
-    border: 1px solid;
-    border-radius: 50px;
+    justify-content: center;
 }

@@ -1,6 +1,6 @@
 import { ChevronRight, ChevronDown, BookmarkAlt, Filter } from '@boxicons/react';
 import Header from '../component/Header';
-import '../styles/task.css';
+import '../styles/my-task.css';
 import { useState } from 'react';
 
 function Task() {
@@ -16,8 +16,6 @@ function Task() {
                     <div className="filter">
                         <Filter/>
                     </div>
-                    
-                    <button>Add Task</button>
                 </div>
 
                 <div className="task-container">

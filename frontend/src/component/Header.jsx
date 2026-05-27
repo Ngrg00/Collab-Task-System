@@ -11,24 +11,20 @@ function Header() {
     const location = useLocation();
 
     useEffect(() => {
-        switch(location.pathname) {
-            case '/home':
-                setActive(1);
-                break;
-            case '/task':
-                setActive(2);
-                break;
-            case '/projects':
-                setActive(3);
-                break;
-            case '/messages':
-                setActive(4);
-                break;
-            case '/reports':
-                setActive(5);
-                break;
+        const path = location.pathname;
+
+        if (path === '/home') {
+            setActive(1);
+        } else if (path === '/task') {
+            setActive(2);
+        } else if (path === '/projects' || path.startsWith('/projectPage')) {
+            setActive(3);
+        }  else if (path === '/messages') {
+            setActive(4);
+        }  else if (path === '/reports') {
+            setActive(5);
         }
-    }, []);
+    }, [location.pathname]);
 
     return(
         <div className="header-wrapper">

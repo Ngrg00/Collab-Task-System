@@ -1,0 +1,31 @@
+.p-info{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.p-info-container{
+    width: 50%;
+    border-bottom: 1px solid lightgrey;
+}
+.p-info-container .rows{
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+.p-info-container .rows .label{
+    width: 120px;
+    font-weight: bold;
+    text-align: right;
+}
+.p-info-container .rows p{
+    margin-top: 10px;
+}
+.p-info-container .rows textarea{
+    border: none;
+    resize: none;
+    padding-top: 10px;
+    outline: none;
+    flex: 1;
+}
