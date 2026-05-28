@@ -1,5 +1,6 @@
 import { Filter, ChevronDown, ChevronRight, BookmarkAlt, Plus } from '@boxicons/react';
 import '../styles/task.css';
+import Task_Info from './Task-info';
 import { useEffect, useState } from 'react';
 
 const BASE_URL = import.meta.env.VITE_URL;
@@ -20,6 +21,7 @@ function Task(props) {
     const [active, setActive] = useState([]);
     const [subProjects, setSubProjects] = useState([]);
     const [showAddSubProject, setShowAddSubProject] = useState(false);
+    const [selectedTask, setSelectedTask] = useState(null); 
     const [showTask, setShowTask] = useState(false);
     const [title, setTitle] = useState("");
     const [tasks, setTasks] = useState({});
@@ -170,10 +172,10 @@ function Task(props) {
                                     <button className="add-task-btn" onClick={() => setShowTask(true)} title="Add Task"><Plus size='sm'/></button>
                                     <div className="tasks">
                                         {tasks[p.id]?.map((t, i) => (
-                                            <div className="t" key={t.id}>
+                                            <div className="t" key={i}>
                                                 <div className="checkbox"></div>
 
-                                                <div className='task-info'>
+                                                <div className='task-info' onClick={() => setSelectedTask(t.id)}>
                                                     <h6 style={{fontSize:"1.25em"}}>
                                                         {t.title}
                                                     </h6>
@@ -243,6 +245,10 @@ function Task(props) {
                             </div>
                         </div>
                     </div>
+                )}
+
+                {selectedTask && (
+                    <Task_Info id={selectedTask} close={() => setSelectedTask(null)} token={token}/>
                 )}
             </div>
         </div>

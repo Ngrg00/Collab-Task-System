@@ -1,0 +1,50 @@
+.p-tasks{
+    position: relative;
+}
+.task-info-wrapper{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+.task-info-container{
+    align-self: flex-end;
+    width: 30%;
+    height: 100%;
+    border: 1px solid lightgrey;
+    background-color: white;
+}
+.task-info-header{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid lightgrey;
+    padding: 10px;
+    padding-bottom: 50px;
+    background-color: hsl(0, 0%, 95%);
+}
+.task-info-container .task-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid lightgrey;
+}
+.task-info-container .task-info .rows{
+    display: flex;
+    gap: 10px;
+}
+.task-info-container .task-info .rows .labels{
+    width: 120px;
+    text-align: right;
+    font-weight: bold;
+}
+.task-info-container .task-info .rows textarea{
+    border: none;
+    resize: none;
+    outline: none;
+}
